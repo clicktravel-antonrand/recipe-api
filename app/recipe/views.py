@@ -6,7 +6,6 @@ from recipe import serializers
 
 class RecipeViewSet(viewsets.ModelViewSet):
     """Manage recipes in the database"""
-    queryset = Recipe.objects.all()
     serializer_class = serializers.RecipeSerializer
 
     def get_queryset(self):

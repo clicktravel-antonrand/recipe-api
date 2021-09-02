@@ -8,7 +8,7 @@ router = DefaultRouter()
 # The app URL configuration defines /recipes as the prefix
 # If we register it again here the URL endpoint will be /recipes/recipes
 # which is why this is blank
-router.register('', views.RecipeViewSet)
+router.register('', views.RecipeViewSet, basename='recipe')
 
 app_name = 'recipe'
 
