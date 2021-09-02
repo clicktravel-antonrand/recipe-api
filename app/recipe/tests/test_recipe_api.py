@@ -86,6 +86,7 @@ class RecipeApiTests(TestCase):
     def test_get_all_recipes_with_name_filter_case_insensitive(self):
         """Test retrieving a list of filtered recipes is case insensitive"""
         # Given
+        # Default recipe is Cashew Curry
         sample_recipe()
         recipe = sample_recipe({
             'name': 'Turkey bubble & squeak',
