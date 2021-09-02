@@ -106,7 +106,8 @@ class RecipeApiTests(TestCase):
         self.assertIn(serializer.data, res.data)
 
     def test_get_all_recipes_with_name_filter_no_results(self):
-        """Test retrieving a list of recipes when there are no filter matches"""
+        """Test retrieving a list of recipes when
+        there are no filter matches"""
         # Given
         sample_recipe({
             'name': 'Turkey bubble & squeak',
