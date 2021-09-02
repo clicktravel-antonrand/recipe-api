@@ -3,8 +3,8 @@ from django.db import models
 
 class Recipe(models.Model):
     """Recipe Model"""
-    name = models.CharField(max_length=255, blank=False)
-    description = models.CharField(max_length=255)
+    name = models.TextField(blank=False)
+    description = models.TextField()
 
     def __str__(self):
         return self.name
@@ -12,7 +12,7 @@ class Recipe(models.Model):
 
 class Ingredient(models.Model):
     """Ingredient to be used for a recipe"""
-    name = models.CharField(max_length=255, blank=False)
+    name = models.TextField(blank=False)
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,
