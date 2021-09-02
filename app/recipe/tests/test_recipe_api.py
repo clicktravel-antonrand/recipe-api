@@ -222,7 +222,7 @@ class RecipeApiTests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_200_OK)
 
         ingredients = recipe.ingredients.all()
-        self.assertEqual(len(ingredients), 1)
+        self.assertEqual(ingredients.count(), 1)
         self.assertEqual(new_ingredient_name, ingredients[0].name)
 
     # DELETE /recipes/<id>/
