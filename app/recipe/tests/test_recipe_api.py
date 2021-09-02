@@ -62,7 +62,7 @@ class RecipeApiTests(TestCase):
 
     # GET /recipes/?name=<filter_term>
     def test_get_all_recipes_with_name_filter(self):
-        """Test retrieving a list of recipes"""
+        """Test retrieving a list of filtered recipes"""
         # Given
         sample_recipe()
         recipe = sample_recipe({
@@ -84,7 +84,7 @@ class RecipeApiTests(TestCase):
         self.assertIn(serializer.data, res.data)
 
     def test_get_all_recipes_with_name_filter_case_insensitive(self):
-        """Test retrieving a list of recipes"""
+        """Test retrieving a list of filtered recipes is case insensitive"""
         # Given
         sample_recipe()
         recipe = sample_recipe({
@@ -106,7 +106,7 @@ class RecipeApiTests(TestCase):
         self.assertIn(serializer.data, res.data)
 
     def test_get_all_recipes_with_name_filter_no_results(self):
-        """Test retrieving a list of recipes"""
+        """Test retrieving a list of recipes when there are no filter matches"""
         # Given
         sample_recipe({
             'name': 'Turkey bubble & squeak',
@@ -146,7 +146,7 @@ class RecipeApiTests(TestCase):
         self.assertEqual(res.data, serializer.data)
 
     def test_get_recipe_by_id_not_found(self):
-        """Test retrieving a recipe by ID"""
+        """Test retrieving a recipe by ID when the recipe doesn't exist"""
         # Given
         # No recipes defined
 
@@ -182,7 +182,7 @@ class RecipeApiTests(TestCase):
         self.assertEqual(ingredients.count(), 3)
 
     def test_create_recipe_invalid_request(self):
-        """Test creating a new recipe"""
+        """Test creating a new recipe with invalid payload"""
         # Given
         payload = {
             'name': '',
@@ -243,7 +243,7 @@ class RecipeApiTests(TestCase):
         self.assertEqual(len(all_ingredients), 0)
 
     def test_delete_non_existing_recipe(self):
-        """Test deleting an existing recipe"""
+        """Test deleting an existing recipe that doesn't exist"""
         # Given
         # No recipes defined
 
